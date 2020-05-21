@@ -1,0 +1,54 @@
+{
+    "name": "msmelos/buscador",
+    "description": "Projeto que busca os cursos no site da Alura",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Mari",
+            "email": "teste@gmail.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^6.5",
+        "symfony/dom-crawler": "^5.0",
+        "symfony/css-selector": "^5.0"
+    },
+
+    "autoload" : {
+
+        "classmap": [
+            "./Teste.php"
+        ],
+
+        "files": ["./mensagem.php"],
+
+        "psr-4" : {
+            "msmelos\\BuscadorDeCursos\\": "src/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.1",
+        "squizlabs/php_codesniffer": "^3.5",
+        "phan/phan": "^3.0"
+    },
+
+    "scripts": {
+        "test": "phpunit tests\\TestBuscador.php",
+        "cs": "phpcs --standard=PSR12 src/",
+        "phan": "phan --allow-polyfill-parser",
+        "ls": "dir",
+        "check" : [
+            "@phan",
+            "@cs",
+            "@test"
+        ],
+        "post-update-cmd": [
+            "@test"
+        ]
+
+    },
+
+    "scripts-descriptions": {
+        "check": "Roda as verificações do código. PHAN, PHPCS e PHPUNIT"
+    }
+}
